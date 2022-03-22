@@ -1,14 +1,20 @@
 import java.util.*;
+
 public class BooleanEquation {
     public static int[] p = { 0, 0, 0, 0, 1, 1, 1, 1 }, pComp = { 1, 1, 1, 1, 0, 0, 0, 0 };
     public static int[] q = { 0, 0, 1, 1, 0, 0, 1, 1 }, qComp = { 1, 1, 0, 0, 1, 1, 0, 0 };
     public static int[] r = { 0, 1, 0, 1, 0, 1, 0, 1 }, rComp = { 1, 0, 1, 0, 1, 0, 1, 0 };
     public static int[] res = { 0, 0, 0, 0, 0, 0, 0, 0 };
-    public static String eqn = "R v P' ^ Q";
-    public static String[] exp = eqn.split("\\s+");
+
+    public static String eqn = "";
+
+    public static String[] exp;
 
     public static void main(String[] args) {
-
+        System.out.println("Enter boolean expression ( in this format : P v Q' ^ R ) :");
+        Scanner sc = new Scanner(System.in);
+        eqn = sc.nextLine();
+        exp = eqn.split("\\s+");
         calculateFirst();
         calculateTruthTable();
         display();
